@@ -38,6 +38,7 @@ def parse(path):
         yield eval(l)
 
     
+# This test dataloader version is created for the first four prompts in Task Family 5 (direct recommendation)
 class P5_Amazon_Dataset(Dataset):
     def __init__(self, all_tasks, task_list, tokenizer, args, sample_numbers, mode='train', split='toys', rating_augment=False, sample_type='random'): 
         self.all_tasks = all_tasks

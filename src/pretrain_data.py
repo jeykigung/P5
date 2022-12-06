@@ -118,6 +118,7 @@ class P5_Amazon_Dataset(Dataset):
         self.datum_info = []
         self.compute_datum_info()
         
+    # compute_datum_info function intends to plan which data sample to be used for which task group according to the sample numbers in train_sample_numbers of pretrain.py
     def compute_datum_info(self):
         curr = 0
         for key in list(self.task_list.keys()):
@@ -127,16 +128,19 @@ class P5_Amazon_Dataset(Dataset):
                     self.datum_info.append((i + curr, key, i // self.sample_numbers[key]))
                 curr = self.total_length
             elif key == 'sequential':
+                # The first group of sequential prompts (directly predict next item): 2-1 to 2-6 and 2-13
                 if sum([0 < int(ind.split('-')[1]) <= 6 or int(ind.split('-')[1]) == 13 for ind in self.task_list[key]]):
                     self.total_length += len(self.sequential_data) * self.sample_numbers[key][0]
                     for i in range(self.total_length - curr):
                         self.datum_info.append((i + curr, key, i // self.sample_numbers[key][0]))
                     curr = self.total_length
+                # The second group of sequential prompts (predict next item from a candidate list): 2-7 to 2-10
                 if sum([6 < int(ind.split('-')[1]) <= 10 for ind in self.task_list[key]]):
                     self.total_length += len(self.sequential_data) * self.sample_numbers[key][1]
                     for i in range(self.total_length - curr):
                         self.datum_info.append((i + curr, key, i // self.sample_numbers[key][1]))
                     curr = self.total_length
+                # The third group of sequential prompts (predict yes or no for each user-item pair): 2-11 to 2-12
                 if sum([10 < int(ind.split('-')[1]) <= 12 for ind in self.task_list[key]]):
                     self.total_length += len(self.sequential_data) * self.sample_numbers[key][2]
                     for i in range(self.total_length - curr):
@@ -153,11 +157,13 @@ class P5_Amazon_Dataset(Dataset):
                     self.datum_info.append((i + curr, key, i // self.sample_numbers[key]))
                 curr = self.total_length
             elif key == 'traditional':
+                # The first group of direct recommendation prompts (choose one item from 100 candidates): 5-1 to 5-4
                 if sum([0 < int(ind.split('-')[1]) <= 4 for ind in self.task_list[key]]):
                     self.total_length += len(self.user2id) * self.sample_numbers[key][0]
                     for i in range(self.total_length - curr):
                         self.datum_info.append((i + curr, key, i // self.sample_numbers[key][0]))
                     curr = self.total_length
+                # The second group of direct recommendation prompts (predict yes or no for each user-item pair): 5-5 to 5-8
                 if sum([4 < int(ind.split('-')[1]) <= 8 for ind in self.task_list[key]]):
                     self.total_length += len(self.user2id) * self.sample_numbers[key][1]
                     for i in range(self.total_length - curr):
@@ -172,6 +178,7 @@ class P5_Amazon_Dataset(Dataset):
             else:
                 raise NotImplementedError
     
+    # use Gaussian sampling to augment rating scores
     def gaussian_sampling(self, datum):
         if self.mode == 'train':
             if int(datum['overall']) == 1:
@@ -330,7 +337,7 @@ class P5_Amazon_Dataset(Dataset):
                 start_candidates = [_ for _ in range(1, min(4, end_pos))]
                 start_index = random.randint(0, len(start_candidates)-1)
                 start_pos = start_candidates[start_index]
-                purchase_history = sequence[start_pos:end_pos+1]
+                purchase_history = sequence[start_pos:end_pos+1] # sample a history sequence from the full user purchase history
                 target_item = sequence[end_pos+1]
             elif self.mode == 'val':
                 purchase_history = sequence[1:-2]

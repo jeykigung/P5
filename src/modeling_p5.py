@@ -19,6 +19,7 @@ from transformers import BeamScorer, BeamSearchScorer
 
 logger = logging.get_logger(__name__)
 
+# The encoder for input token sequence
 class JointEncoder(T5Stack):
     def __init__(self, config, embed_tokens=None):
         super(T5Stack, self).__init__(config)

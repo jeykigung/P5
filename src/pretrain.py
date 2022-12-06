@@ -34,6 +34,7 @@ else:
 
 from trainer_base import TrainerBase
 
+# The Trainer inherits TrainerBase in trainer_base.py
 class Trainer(TrainerBase):
     def __init__(self, args, train_loader=None, val_loader=None, test_loader=None, train=True):
         super().__init__(
@@ -339,6 +340,7 @@ def main_worker(gpu, args):
         dist.init_process_group(backend='nccl')
 
     print(f'Building train loader at GPU {gpu}')
+    # define the prompts used in training
     if args.train == 'yelp':
         train_task_list = {'rating': ['1-1', '1-2', '1-3', '1-4', '1-5', '1-6', '1-7', '1-8', '1-9'],
         'sequential': ['2-1', '2-2', '2-3', '2-4', '2-5', '2-6', '2-7', '2-8', '2-9', '2-10', '2-11', '2-12'],
@@ -353,6 +355,8 @@ def main_worker(gpu, args):
         'review': ['4-1', '4-2', '4-3'],
         'traditional': ['5-1', '5-2', '5-3', '5-4', '5-5', '5-6', '5-7']
         }
+    # define sampling numbers for each group of personalized prompts (see pretrain_data.py)
+    # if greater than 1, a data sample will be used for multiple times with different prompts in certain task family
     train_sample_numbers = {'rating': 1, 'sequential': (5, 5, 10), 'explanation': 1, 'review': 1, 'traditional': (10, 5)}
     train_loader = get_loader(
         args,
@@ -366,6 +370,7 @@ def main_worker(gpu, args):
     )
 
     print(f'Building val loader at GPU {gpu}')
+    # define the prompts used in validation
     if args.valid == 'yelp':
         val_task_list = {'rating': ['1-1', '1-2', '1-3', '1-4', '1-5', '1-6', '1-7', '1-8', '1-9'],
         'sequential': ['2-1', '2-2', '2-3', '2-4', '2-5', '2-6', '2-7', '2-8', '2-9', '2-10', '2-11', '2-12'],
