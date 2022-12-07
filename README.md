@@ -36,8 +36,7 @@ We present a flexible and unified Big Foundation Model for recommendation, which
     ```
     bash scripts/pretrain_P5_base_beauty.sh 4
     ```
-    
-    Here *4* means using 4 GPUs to conduct parallel pretraining.
+   Here *4* means using 4 GPUs to conduct parallel pretraining.
     
 4. Evaluate with example jupyter notebooks in the *notebooks* folder. Before testing, create a soft link of *data* folder to the *notebooks* folder by
    
