@@ -916,11 +916,7 @@ class P5_Amazon_Dataset(Dataset):
                 target_text.append(entry['target_text'])
 
             if 'loss_weight' in entry:
-                ## length-aware loss normalization
-                if entry['target_length'] > 0:
-                    loss_weights[i] = entry['loss_weight'] / entry['target_length']
-                else:
-                    loss_weights[i] = entry['loss_weight']
+                loss_weights[i] = entry['loss_weight']
 
         assert 't5' in args.backbone
         word_mask = target_ids != self.tokenizer.pad_token_id
@@ -1727,11 +1723,7 @@ class P5_Yelp_Dataset(Dataset):
                 target_text.append(entry['target_text'])
 
             if 'loss_weight' in entry:
-                # length-aware loss normalization
-                if entry['target_length'] > 0:
-                    loss_weights[i] = entry['loss_weight'] / entry['target_length']
-                else:
-                    loss_weights[i] = entry['loss_weight']
+                loss_weights[i] = entry['loss_weight']
 
         assert 't5' in args.backbone
         word_mask = target_ids != self.tokenizer.pad_token_id

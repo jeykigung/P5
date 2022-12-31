@@ -49,6 +49,8 @@ We present a flexible and unified Big Foundation Model for recommendation, which
 ## Pretrained Checkpoints
 See [CHECKPOINTS.md](snap/CHECKPOINTS.md).
 
+You can also explore P5 in Hugging Face Hub (https://huggingface.co/makitanikaze/P5).
+
 
 ## Citation
 

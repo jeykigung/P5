@@ -14,3 +14,16 @@ The following table provides the links for pretrained checkpoints:
 | Sports | Small | [download](https://drive.google.com/file/d/1kXEj8twPCCwCOX52FWSWpBfUte28rTHP/view?usp=sharing) |
 | Sports | Base | [download](https://drive.google.com/file/d/1Hb4gQK55v-atrkn_zYLDE-JaXbEZFtwb/view?usp=sharing) |
 | Yelp | Small | [download](https://drive.google.com/file/d/1xxXiePkcDdXg695E1b19uW9yk3ts9AnS/view?usp=sharing) |
+
+## Pretrained Checkpoints for Generative Prompts of Direct Recommendation (Task Family 5: Prompts 5-5 to 5-8)
+The following table provides the links for pretrained checkpoints:
+
+| Dataset | Model Size | Pretrained Checkpoints |
+| :---: | :---: | :---: |
+| Beauty | Small | [download](https://drive.google.com/file/d/12an2mscsqC36xU8U4xwuWxxMcaZ-owV8/view?usp=sharing) |
+| Beauty | Base | [download](https://drive.google.com/file/d/1xsFgQFZaN0Q8Cj-g8Bk_62tk5QPo-MLd/view?usp=sharing) |
+| Toys | Small | [download](https://drive.google.com/file/d/1Da6vh2e1nryQBOncoAvy5y0W4bYO6o03/view?usp=sharing) |
+| Toys | Base | [download](https://drive.google.com/file/d/11nxHdYhw1T3fRjhsXrp_T8b_07PzO0Bc/view?usp=sharing) |
+| Sports | Small | [download](https://drive.google.com/file/d/1ZMov-MXhS0DFHpvF1aI6J84jd4huoOty/view?usp=sharing) |
+| Sports | Base | [download](https://drive.google.com/file/d/193MxHwMas5Kg9vsN_x9kAhUBK6SFWSdr/view?usp=sharing) |
+| Yelp | Small | [download](https://drive.google.com/file/d/1s3eTIFmU2nB0aM1oy3q7q2CbN56nt3ag/view?usp=sharing) |
