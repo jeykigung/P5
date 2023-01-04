@@ -157,13 +157,13 @@ class P5_Amazon_Dataset(Dataset):
                     self.datum_info.append((i + curr, key, i // self.sample_numbers[key]))
                 curr = self.total_length
             elif key == 'traditional':
-                # The first group of direct recommendation prompts (choose one item from 100 candidates): 5-1 to 5-4
+                # The first group of direct recommendation prompts (predict yes or no for each user-item pair): 5-1 to 5-4
                 if sum([0 < int(ind.split('-')[1]) <= 4 for ind in self.task_list[key]]):
                     self.total_length += len(self.user2id) * self.sample_numbers[key][0]
                     for i in range(self.total_length - curr):
                         self.datum_info.append((i + curr, key, i // self.sample_numbers[key][0]))
                     curr = self.total_length
-                # The second group of direct recommendation prompts (predict yes or no for each user-item pair): 5-5 to 5-8
+                # The second group of direct recommendation prompts (choose one item from 100 candidates): 5-5 to 5-8
                 if sum([4 < int(ind.split('-')[1]) <= 8 for ind in self.task_list[key]]):
                     self.total_length += len(self.user2id) * self.sample_numbers[key][1]
                     for i in range(self.total_length - curr):
