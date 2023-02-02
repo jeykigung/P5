@@ -72,7 +72,7 @@ class P5_Amazon_Dataset(Dataset):
                 self.rating_data = load_pickle(os.path.join('data', split, 'rating_splits_augmented.pkl'))['test']
             else:
                 self.rating_data = self.review_data
-            self.zeroshot_exp_data = load_pickle(os.path.join('data', 'beauty', 'zeroshot_exp_splits.pkl')) # change to dataset to be transferred (e.g., 'beauty')
+            self.zeroshot_exp_data = load_pickle(os.path.join('data', split, 'zeroshot_exp_splits.pkl')) # change to dataset to be transferred (e.g., 'beauty')
         else:
             raise NotImplementedError
             
