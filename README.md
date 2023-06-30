@@ -2,7 +2,7 @@
 
 **Paper link: https://arxiv.org/pdf/2203.13366.pdf**
 
-**A relevant repo (OpenP5) is available at: https://github.com/agiresearch/OpenP5**
+**A reorganized repo (OpenP5) is available at: https://github.com/agiresearch/OpenP5**
 
 **Paper: OpenP5: Benchmarking Foundation Models for Recommendation, arXiv: https://arxiv.org/abs/2306.11134**
 
