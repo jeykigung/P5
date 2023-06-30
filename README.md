@@ -1,4 +1,4 @@
-# <font size="1">Recommendation as Language Processing (RLP): A Unified Pretrain, Personalized Prompt & Predict Paradigm (P5)</font>
+# Recommendation as Language Processing (RLP): A Unified Pretrain, Personalized Prompt & Predict Paradigm (P5)
 
 This repo presents implementation of the **P5** large language model (LLM) for recommendation:
 > **Paper**: Recommendation as Language Processing (RLP): A Unified Pretrain, Personalized Prompt & Predict Paradigm (P5) <br>
