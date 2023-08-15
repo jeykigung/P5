@@ -4,7 +4,7 @@ This repo presents implementation of the **P5** large language model (LLM) for r
 > **Paper**: Recommendation as Language Processing (RLP): A Unified Pretrain, Personalized Prompt & Predict Paradigm (P5) <br>
 > **Paper link**: [https://arxiv.org/pdf/2203.13366.pdf](https://arxiv.org/pdf/2203.13366.pdf)
 
-A reorganized and refined repo of P5 called **OpenP5** is also available on GitHub, which is an open-source library for benchmarking foundation models for recommendation under the Pre-train, Personalized Prompt and Predict Paradigm (P5):
+A reorganized and simplified repo of P5 called **OpenP5** is also available on GitHub, which is an open-source library for benchmarking foundation models for recommendation under the Pre-train, Personalized Prompt and Predict Paradigm (P5):
 > **Paper**: OpenP5: Benchmarking Foundation Models for Recommendation <br>
 > **Paper link**: [https://arxiv.org/pdf/2203.13366.pdf](https://arxiv.org/pdf/2306.11134.pdf) <br>
 > **GitHub link**: [https://github.com/agiresearch/OpenP5](https://github.com/agiresearch/OpenP5)
